@@ -1,0 +1,72 @@
+# Логи
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Директория сборки
+#dist
+
+# Директория зависимостей
+node_modules
+
+# Директория для временных файлов
+temp
+
+# Файлы IDE
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Файлы macOS
+.DS_Store
+
+# Файлы пользователя
+*.swp
+
+# Файлы Vue CLI
+.vue
+
+# Файлы тестов
+/tests/
+
+# Файлы сборки
+*.bundle.js
+*.bundle.js.map
+
+# Файлы конфигурации
+.eslintrc.js
+.babelrc
+.postcssrc.js
+.prettierrc
+.prettierignore
+.stylelintrc
+.lintstagedrc
+.huskyrc
+.commitlintrc.js
+.lintstagedrc
+.editorconfig
+.env.*
+
+# Файлы кэша
+.cache
+.parcel-cache
+.vue-cli-cache
+.pnpm-store
+
+# Файлы сервера
+server.js
+upload
+
+# Файлы отчетов
+report.html
+
+# Файлы пакетов
+*.tgz
+
+# Файлы ключей SSH
+id_rsa

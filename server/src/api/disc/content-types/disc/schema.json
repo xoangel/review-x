@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "discs",
+  "info": {
+    "singularName": "disc",
+    "pluralName": "discs",
+    "displayName": "Disc",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "artist": {
+      "type": "string",
+      "required": true
+    },
+    "release_year": {
+      "type": "biginteger",
+      "required": false,
+      "max": "2100",
+      "min": "1700"
+    },
+    "total_rate": {
+      "type": "integer",
+      "max": 10,
+      "min": 0,
+      "required": true
+    },
+    "genre": {
+      "type": "enumeration",
+      "enum": [
+        "Трэп",
+        "Хип-хоп",
+        "Трэп-метал",
+        "Альтернативный рэп",
+        "Поп-музыка",
+        "R&B",
+        "Соул",
+        "Поп-музыка 80х",
+        "Фанк",
+        "Блюз",
+        "Джаз",
+        "Электронная музыка",
+        "Классический рок",
+        "Метал",
+        "Хард-рок",
+        "Альтернативный метал",
+        "Рок-н-ролл",
+        "Хэви-метал",
+        "Глэм-метал",
+        "Ню-метал",
+        "Рэгги"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "cover_link": {
+      "type": "string",
+      "default": "/disc/default_cover.svg"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}
