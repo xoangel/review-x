@@ -1,0 +1,39 @@
+@import "./variables.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#app{
+    background-color: $black;
+}
+
+h1, h2, h3, h4, h5, h6, p, div, button, span, input, input::placeholder{
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+}
+
+h1{
+    font-size: 32px;
+}
+
+h2{
+    font-size: 24px;
+}
+
+div, button, p, a, span, input, input::placeholder{
+    font-size: 16px;
+}
+
+.small_text{
+    font-size: 12px;
+}
+
+.default_input{
+    height: 36px;
+    border-radius: 8px;
+    padding: 0 12px;
+    outline: none;
+}

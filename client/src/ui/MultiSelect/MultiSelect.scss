@@ -1,0 +1,52 @@
+@import "./../../assets/css/variables.scss";
+
+.el-select{
+    .el-select__wrapper{
+        height: 30px;
+        border-radius: 8px;
+        background-color: $orange;
+        color: $white;
+        border: 0px solid $orange;
+        box-shadow: 0 6px 0px #792715;
+        margin-bottom: 6px;
+    }
+
+    .el-select__wrapper:hover{
+        background-color: #e85e40;
+        box-shadow: 0 6px 0px #792715;
+        transition: .3s all ease;
+    }
+
+    .el-select__wrapper.is-hovering:not(.is-focused){
+        box-shadow: 0 6px 0px #792715;
+    }
+
+    .el-select__wrapper:active, .el-select__wrapper.is-focused{
+        box-shadow: 0 6px 0px #792715;
+        transform: translateY(6px);
+        transition: .3s all ease;
+    }
+
+    .el-select__placeholder.is-transparent{
+        color: $white;
+    }
+
+    .el-select__caret{
+        color: $white;
+    }
+
+    .el-tag{
+        background-color: $white;
+        color: $black;
+    }
+} 
+
+.el-popper{
+    border-radius: 8px !important;
+}
+
+.el-popper{
+    .el-select-dropdown{
+        border-radius: 8px;
+    }
+}
