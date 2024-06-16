@@ -3,7 +3,7 @@ import ActionButton from './../../ui/ActionButton/ActionButton.vue';
 import AuthAPI from "./../../helpers/api/AuthAPI.ts";
 //import UseLoader from "./../../ui/UseLoader/UseLoader.vue";
 import { ref } from 'vue';
-import { useUserStore } from '../../helpers/stores/UserStore.ts';
+import { useUserStore } from '../../helpers/stores/useUserStore.ts';
 import { router } from '../../config/router.ts';
 
 const userStore = useUserStore();

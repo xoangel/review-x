@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import IndexView from "./../views/IndexView.vue"
+import IndexView from "../views/IndexView/IndexView.vue"
 import AuthView from "../views/AuthView/AuthView.vue"
 
 export const router = createRouter({

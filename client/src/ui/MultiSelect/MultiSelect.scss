@@ -7,23 +7,23 @@
         background-color: $orange;
         color: $white;
         border: 0px solid $orange;
-        box-shadow: 0 6px 0px #792715;
-        margin-bottom: 6px;
+        box-shadow: 0 4px 0px #792715;
+        margin-bottom: 4px;
     }
 
     .el-select__wrapper:hover{
         background-color: #e85e40;
-        box-shadow: 0 6px 0px #792715;
+        box-shadow: 0 4px 0px #792715;
         transition: .3s all ease;
     }
 
     .el-select__wrapper.is-hovering:not(.is-focused){
-        box-shadow: 0 6px 0px #792715;
+        box-shadow: 0 4px 0px #792715;
     }
 
     .el-select__wrapper:active, .el-select__wrapper.is-focused{
-        box-shadow: 0 6px 0px #792715;
-        transform: translateY(6px);
+        box-shadow: 0 0px 0px #792715;
+        transform: translateY(4px);
         transition: .3s all ease;
     }
 

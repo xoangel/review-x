@@ -8,6 +8,7 @@
 
 #app{
     background-color: $black;
+    min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6, p, div, button, span, input, input::placeholder{
@@ -36,4 +37,10 @@ div, button, p, a, span, input, input::placeholder{
     border-radius: 8px;
     padding: 0 12px;
     outline: none;
+}
+
+section{
+    width: 90%;
+    margin: auto;
+    position: relative;
 }

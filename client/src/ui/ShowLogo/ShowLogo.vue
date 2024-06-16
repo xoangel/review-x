@@ -3,5 +3,21 @@
 </script>
 
 <template>
-    <img class="logo" src="/other/logo.svg" alt="Логотип отошел">
+    <div class="logo_container">
+        <img class="logo_container__logo" src="/other/logo.svg" alt="Логотип отошел">
+    </div>
 </template>
+
+<style scoped lang="scss">
+    .logo_container{
+        width: 100%;
+        display: flex;
+        align-items: center;  
+        justify-content: center;
+        height: 80px;  
+    }
+
+    .logo_container__logo{
+        height: 32px;
+    }
+</style>
