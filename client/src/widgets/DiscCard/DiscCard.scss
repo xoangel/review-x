@@ -1,0 +1,103 @@
+@import "./../../assets/css/variables.scss";
+
+.disc_card{
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid $white;
+    box-shadow: 0 6px 0px #c6c6ce;
+    cursor: pointer;
+    background-color: #121212;
+    transition: background-color .3s ease;
+}
+
+.disc_card:hover{
+    background-color: #202020;
+    transition: background-color .3s ease;
+}
+
+.disc_card{
+    .disc_card__cover{
+        height: 256px;
+        aspect-ratio: 1;
+        border-radius: 8px;
+    }
+
+    .disc_card__content{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .disc_card__year{
+        font-style: italic;
+        font-size: 12px;
+    }
+
+    .disc_card__type_container{
+        display: flex;
+        gap: 6px;
+        margin-top: 16px;
+    }
+
+    .disc_card__bottom{
+        display: flex;
+        gap: 16px;
+        justify-content: flex-start;
+        height: 100%;
+        align-items: flex-end;
+    }
+
+    .disc_card__rate{
+        font-family: "Racing Sans One", sans-serif;
+        font-size: 24px;
+    }
+
+}
+
+.collapsed_discs .disc_card{
+    padding: 4px 12px 4px 4px;
+    border-radius: 8px;
+}
+
+.collapsed_discs .disc_card__content{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.collapsed_discs .disc_card__cover{
+    height: 68px;
+}
+
+.collapsed_discs .disc_card__titles_section{
+    display: flex;
+    min-width: 35%;
+    justify-content: space-between;
+}
+
+.collapsed_discs .disc_card__bottom{
+    align-items: center;
+}
+
+.collapsed_discs .disc_card__title{
+    font-size: 24px;
+}
+
+.collapsed_discs .disc_card__artist{
+    font-size: 16px;
+}
+
+.collapsed_discs .disc_card__type_container{
+    margin-top: 0;
+    align-items: center;
+    justify-self: center;
+}
+
+.collapsed_discs .disc_card__titles_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

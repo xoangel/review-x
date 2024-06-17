@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 import StrapiAPI from "./StrapiAPI";
-import IDisc from "./../types/typeDisc"
+import { DiscResponse, AllDiscsResponse } from "./../types/typeDisc"
 
 export default class DiscAPI extends StrapiAPI{
     constructor(){
@@ -8,18 +8,18 @@ export default class DiscAPI extends StrapiAPI{
         
     }
 
-    async getAll(): Promise<IDisc[]>{
+    async getAll(): Promise<AllDiscsResponse>{
         try{
-            const response: AxiosResponse = await this.axiosInstanse.get("/discs");
+            const response: AxiosResponse = await this.axiosInstanse.get("/discs?populate=users_permissions_user");
             return(response.data);
         } catch(error){
             throw error;
         }
     }
 
-    async getById(id: number): Promise<IDisc>{
+    async getById(id: number): Promise<DiscResponse>{
         try{
-            const response: AxiosResponse = await this.axiosInstanse.get(`/discs/${id}`);
+            const response: AxiosResponse = await this.axiosInstanse.get(`/discs/${id}?populate=users_permissions_user`);
             return(response.data);
         } catch(error){
             throw error;

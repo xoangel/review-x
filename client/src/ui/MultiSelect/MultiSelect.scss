@@ -13,16 +13,16 @@
 
     .el-select__wrapper:hover{
         background-color: #e85e40;
-        box-shadow: 0 4px 0px #792715;
         transition: .3s all ease;
     }
 
     .el-select__wrapper.is-hovering:not(.is-focused){
         box-shadow: 0 4px 0px #792715;
+        transition: .3s all ease;
     }
 
     .el-select__wrapper:active, .el-select__wrapper.is-focused{
-        box-shadow: 0 0px 0px #792715;
+        box-shadow: unset;
         transform: translateY(4px);
         transition: .3s all ease;
     }

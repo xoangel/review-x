@@ -1,0 +1,19 @@
+@import "./../../assets/css/variables.scss";
+
+.author_label{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 24px 2px 4px;
+    background: $white;
+    border-radius: 8px;
+    height: 32px;
+    width: fit-content;
+}
+
+.author_label{
+    p{
+        color: #121212;
+        line-height: 1;
+    }
+}

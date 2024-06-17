@@ -419,13 +419,16 @@ export interface ApiDiscDisc extends Schema.CollectionType {
       ]
     >;
     description: Attribute.Text;
-    cover_link: Attribute.String &
-      Attribute.DefaultTo<'/disc/default_cover.svg'>;
+    cover_link: Attribute.String & Attribute.DefaultTo<'/icons/album.svg'>;
     users_permissions_user: Attribute.Relation<
       'api::disc.disc',
       'oneToOne',
       'plugin::users-permissions.user'
     >;
+    type: Attribute.Enumeration<
+      ['\u0410\u043B\u044C\u0431\u043E\u043C', '\u0421\u0438\u043D\u0433\u043B']
+    > &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

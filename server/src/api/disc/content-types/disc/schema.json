@@ -64,12 +64,20 @@
     },
     "cover_link": {
       "type": "string",
-      "default": "/disc/default_cover.svg"
+      "default": "/icons/album.svg"
     },
     "users_permissions_user": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Альбом",
+        "Сингл"
+      ],
+      "required": true
     }
   }
 }

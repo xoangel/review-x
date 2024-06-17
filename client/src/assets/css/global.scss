@@ -11,7 +11,13 @@
     min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6, p, div, button, span, input, input::placeholder{
+h1, h2, h3, h4, h5, h6, p, div, button, span{
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    color: $white;
+}
+
+input, input::placeholder, li, li>span{
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 400;
 }
