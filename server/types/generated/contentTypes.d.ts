@@ -429,6 +429,16 @@ export interface ApiDiscDisc extends Schema.CollectionType {
       ['\u0410\u043B\u044C\u0431\u043E\u043C', '\u0421\u0438\u043D\u0433\u043B']
     > &
       Attribute.Required;
+    dynamic_rate: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+          max: 10;
+        },
+        number
+      > &
+      Attribute.DefaultTo<5>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

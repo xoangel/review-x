@@ -78,6 +78,13 @@
         "Сингл"
       ],
       "required": true
+    },
+    "dynamic_rate": {
+      "type": "integer",
+      "max": 10,
+      "required": true,
+      "min": 0,
+      "default": 5
     }
   }
 }

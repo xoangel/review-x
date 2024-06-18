@@ -38,6 +38,6 @@ defineProps<{
     </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "./DiscCard.scss";
 </style>

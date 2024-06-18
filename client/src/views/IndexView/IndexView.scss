@@ -9,3 +9,65 @@
 .collapsed_discs{
     grid-template-columns: 1fr;
 }
+
+.el-dialog{
+    background: #121212 !important;
+    border-radius: 16px !important;
+    padding: 0 !important;
+}
+
+.disc_popup{
+    display: flex;
+    gap: 12px;
+    padding:0 0 16px 16px;
+}
+
+.disc_popup__data{
+    display: flex;
+    flex-direction: column;
+}
+
+.disc_popup__cover{
+    width: 256px;
+    aspect-ratio: 1;
+    border-radius: 8px;
+}
+
+.disc_popup__review{
+    background-color: white;
+    width: 100%;
+    border-radius: 0 0 16px 16px;
+    color: #121212;
+    padding: 32px 36px;
+    box-shadow: inset 0 8px 8px #3a3a3a25;
+}
+
+.disc_popup__range{
+    display: flex;
+    gap: 8px;
+}
+
+.disc_popup__bottom{
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.disc_popup__rate{
+    font-family: "Racing Sans One", sans-serif;
+    font-size: 24px;
+    margin-left: 16px;
+}
+
+.disc_popup__year{
+    font-style: italic;
+}
+
+.el-progress{
+    width: 256px;
+}
+
+.el-overlay{
+    backdrop-filter: blur(42px);
+}

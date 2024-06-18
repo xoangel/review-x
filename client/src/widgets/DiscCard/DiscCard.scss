@@ -23,6 +23,7 @@
         height: 256px;
         aspect-ratio: 1;
         border-radius: 8px;
+        transition: all .3s ease;
     }
 
     .disc_card__content{
@@ -61,7 +62,9 @@
 .collapsed_discs .disc_card{
     padding: 4px 12px 4px 4px;
     border-radius: 8px;
+    transition: all .3s ease;
 }
+
 
 .collapsed_discs .disc_card__content{
     flex-direction: row;
@@ -70,12 +73,14 @@
 
 .collapsed_discs .disc_card__cover{
     height: 68px;
+    transition: all .3s ease;
 }
 
 .collapsed_discs .disc_card__titles_section{
     display: flex;
-    min-width: 35%;
+    min-width: 50%;
     justify-content: space-between;
+    transition: all .3s ease;
 }
 
 .collapsed_discs .disc_card__bottom{
@@ -84,10 +89,12 @@
 
 .collapsed_discs .disc_card__title{
     font-size: 24px;
+    transition: all .3s ease;
 }
 
 .collapsed_discs .disc_card__artist{
     font-size: 16px;
+    transition: all .3s ease;
 }
 
 .collapsed_discs .disc_card__type_container{
@@ -101,3 +108,5 @@
     flex-direction: column;
     justify-content: center;
 }
+
+
