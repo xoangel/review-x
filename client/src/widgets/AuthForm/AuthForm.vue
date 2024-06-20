@@ -16,8 +16,9 @@ async function auth(){
         const authApi = new AuthAPI();
         try{
             isLoading.value = true;
-            const response = await authApi.authUser(login.value, password.value);
-            userStore.jwt = response.data.jwt;
+            const token = (await authApi.authUser(login.value, password.value)).data.jwt
+            localStorage.setItem("jwt", token);
+            userStore.me = await authApi.getMe();
             router.push('/');
         } catch(error){
             throw error;

@@ -10,6 +10,6 @@ defineProps<{
     </button>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "./ActionButton.scss";
 </style>

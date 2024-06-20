@@ -41,6 +41,10 @@
     }
 } 
 
+.el-select-dropdown__item span{
+    color: $black;
+}
+
 .el-popper{
     border-radius: 8px !important;
 }

@@ -16,8 +16,8 @@ export default class AuthAPI extends StrapiAPI{
 
     async getMe(){
         try{
-            const response = await this.axiosInstance.get("/users/me");
-            return response;
+            const response = await this.axiosInstance.get("/users/me", {headers:{Authorization: `Bearer ${localStorage.getItem("jwt")}`}});
+            return response.data;
         } catch(error){
             throw error;
         }

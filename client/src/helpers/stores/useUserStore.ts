@@ -1,9 +1,12 @@
 import { defineStore } from 'pinia';
-import { computed, ref } from 'vue';
+import { computed, Ref, ref } from 'vue';
+import { UserAttributes } from '../types/typeDisc';
+
 
 export const useUserStore = defineStore('users', ()=>{
-    const jwt = ref('');
-    const getJwt = computed(()=>jwt)
+    const me: Ref<UserAttributes | null> = ref(null);
+    const getMe = computed(()=>me.value)
+    const isAuthorizated = (): boolean => localStorage.getItem("jwt") ? true : false;
 
-    return{jwt, getJwt}
+    return{me, getMe, isAuthorizated}
 })

@@ -4,6 +4,7 @@ import ShowLogo from './../../ui/ShowLogo/ShowLogo.vue';
 import DiscCard from '../../widgets/DiscCard/DiscCard.vue';
 import DiscAPI from '../../helpers/api/DiscAPI';
 import IconContainer from '../../ui/icon/IconContainer.vue';
+import { useDiscStore } from '../../helpers/stores/useDiscStore';
 import { IDisc } from './../../helpers/types/typeDisc';
 import { Ref, ref } from 'vue';
 
@@ -11,6 +12,7 @@ const discs: Ref<IDisc[]> = ref([]);
 const discAPIInstance = new DiscAPI();
 let dialogVisible: Ref<boolean> = ref(false);
 let selectedDisc: Ref<IDisc | null> = ref(null);
+const discStore = useDiscStore();
 
 const getDiscsData = async() => {
     const res = await discAPIInstance.getAll();
@@ -32,7 +34,7 @@ function showDetails(disc: IDisc){
         <el-divider />
         <ToolBar />
         <div class="content_container">
-            <DiscCard @click="showDetails(disc)" v-for="disc in discs" :key="disc.id" :data="disc" />
+            <DiscCard @click="showDetails(disc)" v-for="disc in discStore.filteredDiscs" :key="disc.id" :data="disc" />
         </div>
     </section>
     
