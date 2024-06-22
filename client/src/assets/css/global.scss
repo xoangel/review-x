@@ -11,7 +11,7 @@
     min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6, p, div, button{
+h1, h2, h3, h4, h5, h6, p, div, button, label{
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 400;
     color: $white;
@@ -79,4 +79,12 @@ section{
   
   *::-webkit-scrollbar-thumb:active {
     background-color: #E85E40;
+  }
+
+  .el-notification{
+    background-color: #202020;
+  }
+
+  .el-notification .el-notification__title{
+    color: $white;
   }

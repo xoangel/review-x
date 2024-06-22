@@ -2,15 +2,16 @@
 
 .toolbar{
     height: 64px;
-    width: 90%;
+    width: 100%;
     padding: 0 12px;
     gap: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 16px;
-    background-color: $white;
-    position: fixed;
+    background-color: #F0F1FA;
+    position: sticky;
+    top: 16px;
 }
 
 .toolbar{

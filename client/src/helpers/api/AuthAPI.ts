@@ -1,3 +1,4 @@
+import { UserData} from "../types/typeDisc";
 import StrapiAPI from "./StrapiAPI";
 
 export default class AuthAPI extends StrapiAPI{
@@ -14,9 +15,10 @@ export default class AuthAPI extends StrapiAPI{
         }
     }
 
-    async getMe(){
+    async getMe(): Promise<UserData>{
         try{
             const response = await this.axiosInstance.get("/users/me", {headers:{Authorization: `Bearer ${localStorage.getItem("jwt")}`}});
+            console.log(response);
             return response.data;
         } catch(error){
             throw error;

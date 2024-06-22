@@ -3,10 +3,10 @@ import ActionButton from './../../ui/ActionButton/ActionButton.vue';
 import AuthAPI from "./../../helpers/api/AuthAPI.ts";
 //import UseLoader from "./../../ui/UseLoader/UseLoader.vue";
 import { ref } from 'vue';
-import { useUserStore } from '../../helpers/stores/useUserStore.ts';
+// import { useUserStore } from '../../helpers/stores/useUserStore.ts';
 import { router } from '../../config/router.ts';
 
-const userStore = useUserStore();
+// const userStore = useUserStore();
 const login = ref('');
 const password = ref('');
 let isLoading = ref(false);
@@ -18,7 +18,6 @@ async function auth(){
             isLoading.value = true;
             const token = (await authApi.authUser(login.value, password.value)).data.jwt
             localStorage.setItem("jwt", token);
-            userStore.me = await authApi.getMe();
             router.push('/');
         } catch(error){
             throw error;

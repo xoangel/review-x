@@ -7,8 +7,6 @@ import AuthorLabel from "../../ui/AuthorLabel/AuthorLabel.vue";
 defineProps<{
     data: IDisc
 }>();
-
-
 </script>
 
 <template>
@@ -30,7 +28,8 @@ defineProps<{
                 </div>
             </div>
             <div class="disc_card__bottom">
-                <AuthorLabel :name="data.attributes.users_permissions_user.data.attributes.username" /> 
+                <!-- @vue-ignore -->
+                <AuthorLabel :name="data.attributes.users_permissions_user?.data.attributes.username" /> 
                 <p class="disc_card__rate">{{ data.attributes.total_rate }}/10</p>
                 <!-- <ActionButton :submit="false"><IconContainer :src="'/icons/flash.svg'"/><p>Подробнее</p></ActionButton> -->
             </div>

@@ -1,4 +1,5 @@
-export interface UserAttributes {
+export interface UserData {
+    id: number,
     username: string;
     email: string;
     provider: string;
@@ -7,15 +8,6 @@ export interface UserAttributes {
     createdAt: string;
     updatedAt: string;
   }
-  
-export interface UserData {
-    id: number;
-    attributes: UserAttributes;
-}
-
-export interface UsersPermissionsUser {
-    data: UserData;
-}
 
 export interface DiscAttributes {
     title: string;
@@ -24,12 +16,13 @@ export interface DiscAttributes {
     total_rate: number;
     genre: string;
     description: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
+    createdAt?: string;
+    updatedAt?: string;
+    publishedAt?: string;
     cover_link: string;
     type: string | null;
-    users_permissions_user: UsersPermissionsUser;
+    users_permissions_user?: UserData;
+    dynamic_rate: number
 }
 
 export interface IDisc {

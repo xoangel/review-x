@@ -52,7 +52,7 @@ const searchDiscs = (newQuery: string) => {
         </div>
         <SearchInput @search-discs="searchDiscs" />
         <div class="toolbar__bar right_bar">
-            <ActionButton v-if="userStore.isAuthorizated()" :submit="false"><IconContainer :src="'/icons/cross.svg'"/><p>Добавить диск</p> </ActionButton>
+            <ActionButton v-if="userStore.isAuthorizated()" @click="discStore.createDiscVisibility = true" :submit="false"><IconContainer :src="'/icons/cross.svg'"/><p>Добавить диск</p> </ActionButton>
             <AccountMenu v-if="userStore.isAuthorizated()"/>
             <RouterLink v-else :to="'/auth/'"><SquareButton :icon="'/icons/auth.svg'" :isFilled="false"/></RouterLink>
             <SquareButton @click="toggleView" :icon="'/icons/collapse_cards.svg'" :swapIcon="'/icons/expand_cards.svg'" :isFilled="true"/>

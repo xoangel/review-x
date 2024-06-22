@@ -1,0 +1,124 @@
+@import "./../../assets/css/variables.scss";
+
+.create_disc_popup{
+    padding: 16px 32px 32px 32px;
+}
+
+.create_disc_popup{
+    &__title{
+        text-align: center;
+    }
+
+    &__inputs{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 16px;
+        gap: 8px;
+    }
+
+    &__line{
+        display: grid;
+        gap: 8px;
+    }
+
+    &__line-fl{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__line-tl{
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-top: 8px;
+    }
+
+    &__line-sxl{
+        grid-template-columns: 4fr 1fr;
+        gap: 32px;
+    }
+
+    &__input_group{
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        justify-content: flex-end;
+    }
+
+    &__input_group{
+        label{
+            margin-left: 8px;
+        }
+    }
+
+    &__select_group{
+        display: flex;
+        gap: 16px;
+    }
+
+    &__select_group{
+        .icon{
+            filter: grayscale(.5);
+            transition: filter .25s ease;
+            width: 32px;
+            height: 32px;
+        }
+    }
+}
+
+.create_disc_popup__line-sxl .create_disc_popup__input_group{
+    justify-content: center;       
+}
+
+.create_disc_popup__input_group .el-slider__bar{
+    background-color: $lightOrange;
+}
+
+.create_disc_popup__input_group .el-slider__button{
+    border: 2px solid $orange;
+}
+
+.create_disc_popup__input_group .el-select__wrapper{
+    height: 30px;
+}
+
+.create_disc_popup__input_group .el-select span{
+    color: $white;
+}
+
+.create_disc_popup__input_group .el-input__wrapper,
+.create_disc_popup__input_group .el-textarea__inner{
+    border-radius: 8px;
+}
+
+.create_disc_popup__line-fvl{
+    justify-content: center;
+}
+
+.create_disc_popup__line-fvl .create_disc_popup__input_group{
+    gap: 4px;
+}
+
+.create_disc_popup__line-fvl h2{
+    text-align: center;
+}
+
+.create_disc_popup__line-sxl .create_disc_popup__input_group .el-input__inner{
+    font-family: 'Racing Sans One';
+    font-size: 24px;
+    color: $black;
+}
+
+.el-input-number__decrease:hover, .el-input-number__increase:hover {
+    color: $orange !important;
+}
+
+
+
+.el-input-number__decrease:hover~.el-input:not(.is-disabled) .el-input__wrapper, 
+.el-input-number__increase:hover~.el-input:not(.is-disabled) .el-input__wrapper,
+.el-input__wrapper.is-focus, 
+.el-textarea__inner.is-focus {
+    box-shadow: 0 0 0 1px $orange inset !important;
+}
+
+
+
