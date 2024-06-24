@@ -7,7 +7,20 @@ export interface UserData {
     blocked: boolean;
     createdAt: string;
     updatedAt: string;
-  }
+}
+
+export interface UserResponse{
+    id: number,
+    data: {
+        username: string;
+        email: string;
+        provider: string;
+        confirmed: boolean;
+        blocked: boolean;
+        createdAt: string;
+        updatedAt: string;
+    }
+}
 
 export interface DiscAttributes {
     title: string;
@@ -21,7 +34,7 @@ export interface DiscAttributes {
     publishedAt?: string;
     cover_link: string;
     type: string | null;
-    users_permissions_user?: UserData;
+    users_permissions_user?: DiscResponse;
     dynamic_rate: number
 }
 

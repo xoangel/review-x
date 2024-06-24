@@ -1,12 +1,41 @@
 <script setup lang="ts">
-import { IDisc } from "./../../helpers/types/typeDisc";
+import { IDisc, UserResponse } from "./../../helpers/types/typeDisc";
 import IconContainer from "../../ui/icon/IconContainer.vue";
 import AuthorLabel from "../../ui/AuthorLabel/AuthorLabel.vue";
-//import ActionButton from "../../ui/ActionButton/ActionButton.vue";
-
-defineProps<{
+import { useDiscStore } from "../../helpers/stores/useDiscStore";
+import { useUserStore } from "../../helpers/stores/useUserStore";
+import { ref, watchEffect } from "vue";
+const props = defineProps<{
     data: IDisc
 }>();
+
+console.log(props.data)
+
+const discStore = useDiscStore();
+const userStore = useUserStore();
+
+const me = ref<UserResponse | null>(null);
+
+const getMe = async () => {
+    me.value = await userStore.authAPIInterface.getMe();
+};
+
+getMe();
+
+function editDisc(): void{
+    discStore.discToEdit = props.data;
+    discStore.editMode = true;
+    discStore.createDiscVisibility = true;
+    console.log(discStore.discToEdit)
+}
+
+const isMine = ref(false);
+
+watchEffect(() => {
+    if (me.value) {
+        isMine.value = me.value.id === props.data.attributes.users_permissions_user?.data.id;
+    }
+});
 </script>
 
 <template>
@@ -32,6 +61,9 @@ defineProps<{
                 <AuthorLabel :name="data.attributes.users_permissions_user?.data.attributes.username" /> 
                 <p class="disc_card__rate">{{ data.attributes.total_rate }}/10</p>
                 <!-- <ActionButton :submit="false"><IconContainer :src="'/icons/flash.svg'"/><p>Подробнее</p></ActionButton> -->
+            </div>
+            <div v-if="isMine" @click.stop="editDisc" class="disc_card__edit">
+                <IconContainer :src="'/icons/edit.svg'" />
             </div>
         </div>
     </div>

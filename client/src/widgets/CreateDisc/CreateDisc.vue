@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, Ref, ref } from 'vue';
+import { computed, nextTick, onMounted, Ref, ref, watch } from 'vue';
 import { useDiscStore } from '../../helpers/stores/useDiscStore';
 import ContentTypeAPI from '../../helpers/api/ContentTypeAPI';
 import ActionButton from '../../ui/ActionButton/ActionButton.vue';
@@ -7,10 +7,6 @@ import IconContainer from '../../ui/icon/IconContainer.vue';
 import { DiscAttributes } from '../../helpers/types/typeDisc';
 import { ElLoading, ElNotification } from 'element-plus';
 import isImageURL from "./../../helpers/services/is_image"
-
-defineProps<{
-    edit?: boolean;
-}>();
 
 const discStore = useDiscStore();
 const contentTypeAPIInstance = new ContentTypeAPI();
@@ -31,6 +27,39 @@ const opinionInput = ref('');
 let dialog = ref(null)
 let melancholicIcon: Ref<Element | null> = ref(null);
 let greatIcon: Ref<Element | null> = ref(null);
+
+watch((discStore.getDiscToEdit as any ), ()=>{
+    if (discStore.editMode && discStore.getDiscToEdit.value){
+        const disc = discStore.getDiscToEdit.value.attributes;
+        artistInput.value = disc.artist;
+        albumInput.value = disc.title;
+        if(disc.release_year) releaseYearInput.value = disc.release_year;
+        if(disc.type) releaseTypeInput.value = disc.type;
+        if(disc.cover_link) albumCoverInput.value = disc.cover_link;
+        genreInput.value = disc.genre;
+        moodInput.value = disc.dynamic_rate;
+        totalRateInput.value = disc.total_rate;
+        opinionInput.value = disc.description;
+    }
+
+});
+
+
+function closeDialog(){
+    if(discStore.editMode || discStore.discToEdit){
+        discStore.editMode = false;
+        discStore.discToEdit = null;
+        artistInput.value = '';
+        albumInput.value = '';
+        releaseYearInput.value = '';
+        releaseTypeInput.value = '';
+        albumCoverInput.value = '';
+        genreInput.value = '';
+        moodInput.value = 5;
+        totalRateInput.value = 5;
+        opinionInput.value = '';
+    }
+}
 
 onMounted(()=>{
     nextTick(() => {
@@ -75,10 +104,19 @@ async function submitCreation(){
         };
 
         if(!isImageURL(disc.cover_link)){
+            ElNotification({
+                title: 'Неверная ссылка',
+                message: 'Указанная ссылка указывает не на картинку',
+                type: 'error',
+            })
             throw Error("Ссылка указывает не на картинку");
         }
 
-        await discStore.discAPIInstance.createDisc(disc);
+        if(discStore.editMode && discStore.discToEdit){
+            await discStore.discAPIInstance.updateDisc(disc, discStore.discToEdit?.id);
+        } else{
+            await discStore.discAPIInstance.createDisc(disc);
+        }
         ElNotification({
             title: 'Успешно',
             message: 'Диск отправлен на модерацию',
@@ -92,6 +130,7 @@ async function submitCreation(){
             type: 'error',
         })
     } finally {
+        closeDialog();
         loading.close();
         discStore.createDiscVisibility = false;
     }
@@ -100,7 +139,9 @@ async function submitCreation(){
 </script>
 
 <template>
-    <el-dialog ref="dialog"
+    <el-dialog 
+    @close="closeDialog"
+    ref="dialog"
     v-model="discStore.createDiscVisibility"
     width="960"
     >

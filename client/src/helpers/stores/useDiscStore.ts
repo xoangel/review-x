@@ -8,6 +8,8 @@ export const useDiscStore = defineStore('discs', () => {
     const discList: Ref<IDisc[]> = ref([]);
     const dialogVisibility = ref(false);
     const createDiscVisibility = ref(false);
+    const discToEdit: Ref<null | IDisc> = ref(null);
+    const editMode: Ref<boolean> = ref(false);
 
     async function getDiscs() {
         discList.value = (await discAPIInstance.getAll()).data;
@@ -17,11 +19,12 @@ export const useDiscStore = defineStore('discs', () => {
 
     const getDialogVisibility = computed(()=>dialogVisibility);
     const getCreateDiscVisibility = computed(()=>createDiscVisibility);
+    const getDiscToEdit = computed(()=>discToEdit);
+    const getEditMode = computed(()=>editMode)
 
     const authorsList = computed(() => {
         const authorsSet = new Set<string>();
         discList.value.forEach(disc => {
-            console.log(disc);
             if (disc.attributes && (disc.attributes.users_permissions_user as any).data.attributes.username) {
                 authorsSet.add((disc.attributes.users_permissions_user as any).data.attributes.username);
             }
@@ -69,6 +72,10 @@ export const useDiscStore = defineStore('discs', () => {
         getDialogVisibility,
         createDiscVisibility,
         getCreateDiscVisibility,
-        discAPIInstance
+        discAPIInstance,
+        discToEdit,
+        editMode,
+        getDiscToEdit,
+        getEditMode
     };
 })

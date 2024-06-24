@@ -12,6 +12,7 @@
     background-color: #121212;
     transition: background-color .3s ease;
     margin-bottom: 6px;
+    position: relative;
 }
 
 .disc_card:hover{
@@ -56,6 +57,40 @@
     .disc_card__rate{
         font-family: "Racing Sans One", sans-serif;
         font-size: 24px;
+    }
+
+    
+    &__edit{
+        width: 36px;
+        aspect-ratio: 1;
+        background-color: #77777750;
+        border-radius: 4px;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        display: flex;
+        place-content: center;
+        place-items: center;
+        transition: background-color .3s ease;
+    }
+
+    &__edit:hover{
+        background-color: #77777780;
+        transition: background-color .3s ease;
+    }
+
+    &__edit:hover{
+        .icon{
+            width: 32px;
+            transition: width .3s ease;
+        }
+    }
+
+    &__edit{
+        .icon{
+            width: 24px;
+            transition: width .3s ease;
+        }
     }
 
 }
