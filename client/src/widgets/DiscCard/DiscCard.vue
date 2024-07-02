@@ -9,8 +9,6 @@ const props = defineProps<{
     data: IDisc
 }>();
 
-console.log(props.data)
-
 const discStore = useDiscStore();
 const userStore = useUserStore();
 
@@ -26,7 +24,6 @@ function editDisc(): void{
     discStore.discToEdit = props.data;
     discStore.editMode = true;
     discStore.createDiscVisibility = true;
-    console.log(discStore.discToEdit)
 }
 
 const isMine = ref(false);

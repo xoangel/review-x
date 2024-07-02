@@ -103,13 +103,12 @@ async function submitCreation(){
             type: releaseTypeInput.value
         };
 
-        if(!isImageURL(disc.cover_link)){
+        if(disc.cover_link && !isImageURL(disc.cover_link)){
             ElNotification({
                 title: 'Неверная ссылка',
                 message: 'Указанная ссылка указывает не на картинку',
                 type: 'error',
-            })
-            throw Error("Ссылка указывает не на картинку");
+            });
         }
 
         if(discStore.editMode && discStore.discToEdit){
@@ -124,6 +123,7 @@ async function submitCreation(){
         });
     } catch(error){
         console.error(error);
+        closeDialog();
         ElNotification({
             title: 'Возникла ошибка',
             message: 'Попробуйте позже',

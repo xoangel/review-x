@@ -71,7 +71,7 @@
         display: flex;
         place-content: center;
         place-items: center;
-        transition: background-color .3s ease;
+        transition: all .3s ease;
     }
 
     &__edit:hover{
@@ -143,6 +143,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.collapsed_discs .disc_card__edit{
+    right: -48px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all .3s ease;
 }
 
 

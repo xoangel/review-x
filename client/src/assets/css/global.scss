@@ -57,15 +57,15 @@ section{
   }
   *::-webkit-scrollbar-track {
     border-radius: 5px;
-    background-color: #121212;
+    background-color: transparent;
   }
   
   *::-webkit-scrollbar-track:hover {
-    background-color: #121212;
+    background-color: transparent;
   }
   
   *::-webkit-scrollbar-track:active {
-    background-color: #121212;
+    background-color: transparent;
   }
   
   *::-webkit-scrollbar-thumb {
@@ -87,4 +87,26 @@ section{
 
   .el-notification .el-notification__title{
     color: $white;
+  }
+
+  .mobile-alert{
+    display: none;
+  }
+
+  @media screen and (max-width: 1200px){
+    #app{
+      display: none;
+    }
+
+    .mobile-alert{
+      display: flex;
+      align-items: center;
+      justify-items: center;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .mobile-alert h1{
+      text-align: center;
+    }
   }

@@ -13,8 +13,10 @@
     "element-plus": "^2.7.5",
     "gsap": "^3.12.5",
     "pinia": "^2.1.7",
+    "typed.js": "^2.1.0",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.3"
+    "vue-router": "^4.3.3",
+    "vue-typed-js": "^0.1.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

@@ -1,0 +1,109 @@
+@import "./../../assets/css/variables.scss";
+
+.last_review__headline{
+    background-color: $lightOrange;
+    color: $white;
+    border-radius: 4px;
+    width: max-content;
+    padding: 2px 8px;
+    margin: 0 0 0 auto;
+    text-align: right;
+    margin-top: 8px;
+}
+
+.last_review{
+    width: 100%;
+    display: flex;
+    margin-top: 32px;
+    min-height: 256px;
+    background-color: $orange;
+    border-radius: 16px;
+}
+
+.last_review__content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 24px 24px 24px;
+}
+
+.last_review{
+
+    &__data_container{ 
+        border-radius: 16px 0px 0px 16px;
+        height: calc(100% - 32px);
+    }
+
+    &__cover{
+        height: 100%;
+        max-height: 208px;
+        border-radius: 8px;
+    }
+
+    &__data_container{
+        display: flex;
+        gap: 32px;
+    }
+
+    &__opinion{
+        width: 640px;
+        background-color: $white;
+        border-radius: 0 16px 16px 0;
+        box-shadow: inset 8px 0px 9px #3a3a3a25;
+        overflow: hidden;
+    }
+
+    &__opinion_title{
+        color: $black;
+        text-align: center;
+        margin-top: 8px;
+    }
+
+    &__opinion_text{
+        width: 100%;
+        color: $black;
+        padding: 0 12px 12px 12px;
+    }
+
+    &__year{
+        font-style: italic;
+        font-size: 12px;
+    }
+
+    &__type_container{
+        display: flex;
+        gap: 6px;
+        margin-top: 16px;
+    }
+
+    &__bottom{
+        display: flex;
+        gap: 16px;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        align-items: flex-end;
+    }
+
+    &__rate{
+        font-family: "Racing Sans One", sans-serif;
+        font-size: 64px;
+        line-height: .8;
+    }
+
+    &__data{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &__opinion_text_container{
+        width: 100%;
+        height: 200px;
+        overflow: hidden auto;
+    }
+}
+
+.last_review .el-divider{
+    margin: 8px 0;
+}

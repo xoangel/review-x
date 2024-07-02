@@ -1,5 +1,8 @@
 <template>
     <router-view />
+    <div class="mobile-alert">
+        <h1>Мобильная версия еще в разработке</h1>
+    </div>
 </template>
 
 <script setup lang="ts">

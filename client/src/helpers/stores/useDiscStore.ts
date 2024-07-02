@@ -20,7 +20,8 @@ export const useDiscStore = defineStore('discs', () => {
     const getDialogVisibility = computed(()=>dialogVisibility);
     const getCreateDiscVisibility = computed(()=>createDiscVisibility);
     const getDiscToEdit = computed(()=>discToEdit);
-    const getEditMode = computed(()=>editMode)
+    const getEditMode = computed(()=>editMode);
+    const lastReview = computed(()=>discList.value.slice().reverse().find((el)=>el.attributes.description));
 
     const authorsList = computed(() => {
         const authorsSet = new Set<string>();
@@ -76,6 +77,7 @@ export const useDiscStore = defineStore('discs', () => {
         discToEdit,
         editMode,
         getDiscToEdit,
-        getEditMode
+        getEditMode,
+        lastReview
     };
 })

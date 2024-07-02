@@ -6,8 +6,17 @@
     transition: grid-template-columns .3s ease;
 }
 
+.content_headline{
+    text-align: center;
+    margin-top: 32px;
+}
+
 .collapsed_discs{
     grid-template-columns: 1fr;
+}
+
+.main_section .el-divider{
+    margin: 8px 0 16px 0;
 }
 
 .el-dialog{
