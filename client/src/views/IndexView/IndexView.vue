@@ -12,7 +12,6 @@ import { IDisc } from './../../helpers/types/typeDisc';
 import { Ref, ref } from 'vue';
 import { ElLoading } from 'element-plus';
 
-
 const discs: Ref<IDisc[]> = ref([]);
 const discAPIInstance = new DiscAPI();
 let selectedDisc: Ref<IDisc | null> = ref(null);

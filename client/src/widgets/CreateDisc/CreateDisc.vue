@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, Ref, ref, watch } from 'vue';
+import uploadImages from '../../helpers/services/upload_image';
 import { useDiscStore } from '../../helpers/stores/useDiscStore';
 import ContentTypeAPI from '../../helpers/api/ContentTypeAPI';
 import ActionButton from '../../ui/ActionButton/ActionButton.vue';
@@ -90,37 +91,53 @@ async function submitCreation(){
         text: 'Отправка на модерацию',
         background: 'rgba(0, 0, 0, 0.7)',
     });
+    let cursedImageUrl: boolean = false;
+    
     try{
-        const disc: DiscAttributes = {
-            title: albumInput.value,
-            artist: artistInput.value,
-            release_year: releaseYearInput.value,
-            total_rate: totalRateInput.value,
-            dynamic_rate: moodInput.value,
-            genre: genreInput.value, 
-            description: opinionInput.value,
-            cover_link: albumCoverInput.value,
-            type: releaseTypeInput.value
-        };
-
-        if(disc.cover_link && !isImageURL(disc.cover_link)){
+        if(albumCoverInput.value && !isImageURL(albumCoverInput.value)){
             ElNotification({
                 title: 'Неверная ссылка',
                 message: 'Указанная ссылка указывает не на картинку',
                 type: 'error',
             });
+
+            cursedImageUrl = true;
+            return;
         }
+
+        let coverURL: string = albumCoverInput.value;
+        
+        // try{
+        //     const serverCoverEndpoint = await uploadImages(albumCoverInput.value);
+        //     if (serverCoverEndpoint) coverURL = "http://localhost:1337".concat(serverCoverEndpoint);
+        // } catch(e){
+        //     console.error("Ошибка при получении обложки");
+        // }
+
+        const disc: DiscAttributes = {
+            title: albumInput.value,
+            artist: artistInput.value,
+            release_year: releaseYearInput.value,
+            total_rate: totalRateInput.value,
+            dynamic_rate: parseInt(moodInput.value.toFixed()),
+            genre: genreInput.value, 
+            description: opinionInput.value,
+            cover_link: coverURL,
+            type: releaseTypeInput.value
+        };
 
         if(discStore.editMode && discStore.discToEdit){
             await discStore.discAPIInstance.updateDisc(disc, discStore.discToEdit?.id);
         } else{
             await discStore.discAPIInstance.createDisc(disc);
         }
+
         ElNotification({
             title: 'Успешно',
             message: 'Диск отправлен на модерацию',
             type: 'success',
         });
+
     } catch(error){
         console.error(error);
         closeDialog();
@@ -130,9 +147,11 @@ async function submitCreation(){
             type: 'error',
         })
     } finally {
-        closeDialog();
+        if (!cursedImageUrl){
+            closeDialog();
+            discStore.createDiscVisibility = false;
+        };
         loading.close();
-        discStore.createDiscVisibility = false;
     }
 }
 

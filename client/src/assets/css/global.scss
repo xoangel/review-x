@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+body{
+  background-color: $black;
+}
+
 #app{
     background-color: $black;
     min-height: 100vh;
@@ -94,7 +98,7 @@ section{
   }
 
   @media screen and (max-width: 1200px){
-    #app{
+    .main_section{
       display: none;
     }
 
@@ -108,5 +112,13 @@ section{
 
     .mobile-alert h1{
       text-align: center;
+      width: 100%;
     }
+}
+
+@media screen and (min-width: 1920px){
+  #app{
+    max-width: 1728px;
+    margin: auto;
   }
+}
